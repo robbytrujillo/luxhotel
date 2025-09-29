@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class RolePermissionSeeder extends Seeder
 {
@@ -20,7 +21,7 @@ class RolePermissionSeeder extends Seeder
             'manage cities',
             'manage hotels',
             'manage hotel bookings',
-            'checkout hotel',
+            'checkout hotels',
             'view hotel bookings',
         ];
 
