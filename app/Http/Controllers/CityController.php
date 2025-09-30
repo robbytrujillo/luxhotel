@@ -13,7 +13,7 @@ class CityController extends Controller
     public function index()
     {
         //
-        return 'Halaman List City';
+        return view('admin.cities.index');
     }
 
     /**
