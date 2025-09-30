@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCountryRequest;
 use App\Models\Country;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -31,7 +32,7 @@ class CountryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreCountryRequest $request)
     {
         //
          DB::transaction(function() use ($request) {
