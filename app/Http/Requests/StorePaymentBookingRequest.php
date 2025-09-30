@@ -11,7 +11,7 @@ class StorePaymentBookingRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,7 @@ class StorePaymentBookingRequest extends FormRequest
     {
         return [
             //
+            'proof' => ['required','image','mimes:png,jpg,jpeg'],
         ];
     }
 }

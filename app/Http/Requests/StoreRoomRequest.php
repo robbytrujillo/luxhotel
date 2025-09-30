@@ -11,7 +11,7 @@ class StoreRoomRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,10 @@ class StoreRoomRequest extends FormRequest
     {
         return [
             //
+            'name' => ['required','string','max:255'],
+            'photo' => ['required','image','mimes:png,jpg,jpeg'],
+            'total_people' => ['required','integer'],
+            'price' => ['required','integer'],
         ];
     }
 }

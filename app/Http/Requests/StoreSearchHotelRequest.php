@@ -11,7 +11,7 @@ class StoreSearchHotelRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,9 @@ class StoreSearchHotelRequest extends FormRequest
     {
         return [
             //
+            'keyword' => ['required','string','max:255'],
+            'checkin_at' => ['required','date'],
+            'checkout_at' => ['required','date','after:today'],
         ];
     }
 }
