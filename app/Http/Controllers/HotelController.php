@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
+use App\Models\Country;
 use App\Models\Hotel;
 use Illuminate\Http\Request;
 
@@ -23,6 +25,9 @@ class HotelController extends Controller
     public function create()
     {
         //
+        $countries = Country::orderByDesc('id')->get();
+        $cities = City::orderByDesc('id')->get();
+        return view('admin.hotels.create', compact('countries','cities'));
     }
 
     /**
