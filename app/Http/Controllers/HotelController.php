@@ -39,7 +39,7 @@ class HotelController extends Controller
     public function store(StoreHotelRequest $request)
     {
         //
-        DB::transaction(function () {
+        DB::transaction(function () use ($request) {
             $validated = $request->validated();
 
             if ($request->hasFile('thumbnail')) {
