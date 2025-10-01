@@ -95,10 +95,12 @@
                         </h3>
                     </div>
                     <div class="flex-row items-center hidden md:flex gap-x-3">
-                        <a href=" " class="px-6 py-4 font-bold text-white bg-indigo-700 rounded-full">
+                        <a href="{{ route('admin.hotel_rooms.edit', [$hotel->slug, $room]) }}" class="px-6 py-4 font-bold text-white bg-indigo-700 rounded-full">
                             Edit
                         </a>
-                        <form action=" " method="POST"> 
+                        <form action="{{ route('admin.hotel_rooms.destroy', [$hotel->slug, $room]) }}" method="POST"> 
+                            @csrf
+                            @method('DELETE')
                             <button type="submit" class="px-6 py-4 font-bold text-white bg-red-700 rounded-full">
                                 Delete
                             </button>
