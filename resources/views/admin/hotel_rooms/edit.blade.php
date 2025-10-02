@@ -38,7 +38,7 @@
                     <div class="mt-4">
                         <x-input-label for="photo" :value="__('photo')" />
                         <img src="{{ Storage::url($hotelRoom->photo) }}" alt="" class="rounded-2xl object-cover w-[120px] h-[90px]">
-                        <x-text-input id="photo" class="block w-full mt-1" type="file" name="photo" required autofocus autocomplete="photo" />
+                        <x-text-input id="photo" class="block w-full mt-1" type="file" name="photo" autofocus autocomplete="photo" />
                         <x-input-error :messages="$errors->get('photo')" class="mt-2" />
                     </div>
 
