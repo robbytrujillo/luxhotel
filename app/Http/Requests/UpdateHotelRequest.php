@@ -24,7 +24,7 @@ class UpdateHotelRequest extends FormRequest
         return [
             //
             'name' => ['required','string','max:255'],
-            'adress' => ['required','string','max:255'],
+            'address' => ['required','string','max:255'],
             'link_gmaps' => ['required','string','max:255'],
             'thumbnail' => ['sometimes','image','mimes:png,jpg,jpeg'],
             'city_id' => ['required','integer'],

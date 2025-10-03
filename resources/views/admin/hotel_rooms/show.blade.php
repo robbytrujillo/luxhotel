@@ -14,20 +14,20 @@
 
                 <div class="item-card flex flex-row justify-between items-center">
                     <div class="flex flex-row items-center gap-x-3">
-                        <img src=" " alt="" class="rounded-2xl object-cover w-[120px] h-[90px]">
+                        <img src="{{ Storage::url($hotelRoom->thumbnail) }}" alt="" class="rounded-2xl object-cover w-[120px] h-[90px]">
                         <div class="flex flex-col">
                             <h3 class="text-indigo-950 text-xl font-bold">
-                                asdsad
+                                {{$hotelRoom->name}}
                             </h3>
                         <p class="text-slate-500 text-sm">
-                            asdasdsa, asadsda
+                            {{ $hotel->city->name }}, {{ $hotel->country->name }}
                         </p>
                         </div>
                     </div> 
                     <div  class="hidden md:flex flex-col">
                         <p class="text-slate-500 text-sm">Price</p>
                         <h3 class="text-indigo-950 text-xl font-bold">
-                            Rp 1/night
+                            Rp {{ number_format($hotel->getLowestRoomPrice(), 0, ',', '.') }}/night
                         </h3>
                     </div>
                     <div  class="hidden md:flex flex-col">
@@ -37,10 +37,10 @@
                         </h3>
                     </div>
                     <div class="hidden md:flex flex-row items-center gap-x-3">
-                        <a href=" " class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
+                        <a href="{{ route('admin.hotel_rooms.edit', [$hotel->slug, $room]) }}" class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
                             Edit
                         </a>
-                        <form action=" " method="POST"> 
+                        <form action="{{ route('admin.hotel_rooms.destroy', [$hotel->slug, $room]) }}" method="POST"> 
                             <button type="submit" class="font-bold py-4 px-6 bg-red-700 text-white rounded-full">
                                 Delete
                             </button>
