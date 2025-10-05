@@ -41,6 +41,8 @@
                             Edit
                         </a>
                         <form action="{{ route('admin.hotels.destroy', $hotel) }}" method="POST"> 
+                            @csrf
+                            @method('DELETE')
                             <button type="submit" class="px-6 py-4 font-bold text-white bg-red-700 rounded-full">
                                 Delete
                             </button>
@@ -95,10 +97,10 @@
                         </h3>
                     </div>
                     <div class="flex-row items-center hidden md:flex gap-x-3">
-                        <a href="{{ route('admin.hotels.edit', $hotel) }}" class="px-6 py-4 font-bold text-white bg-indigo-700 rounded-full">
+                        <a href="{{ route('admin.hotel_rooms.edit', ['hotel' => $hotel->slug, 'hotel_room' => $room]) }}" class="px-6 py-4 font-bold text-white bg-indigo-700 rounded-full">
                             Edit
                         </a>
-                        <form action="{{ route('admin.hotels.destroy', [$hotel->slug, $room]) }}" method="POST"> 
+                        <form action="{{ route('admin.hotel_rooms.destroy', ['hotel' => $hotel->slug, 'hotel_room' => $room]) }}" method="POST"> 
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="px-6 py-4 font-bold text-white bg-red-700 rounded-full">

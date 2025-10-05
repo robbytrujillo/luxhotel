@@ -128,5 +128,10 @@ class HotelController extends Controller
     public function destroy(Hotel $hotel)
     {
         //
+        DB::transaction(function() use ($hotel) {
+            $hotel->delete();
+        });
+            
+        return redirect()->route('admin.hotels.index'); 
     }
 }

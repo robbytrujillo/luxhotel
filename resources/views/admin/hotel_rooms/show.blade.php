@@ -37,10 +37,10 @@
                         </h3>
                     </div>
                     <div class="flex-row items-center hidden md:flex gap-x-3">
-                        <a href="{{ route('admin.hotel_rooms.edit', [$hotel->slug, $room]) }}" class="px-6 py-4 font-bold text-white bg-indigo-700 rounded-full">
+                        <a href="{{ route('admin.hotel_rooms.edit', [$hotel->slug, 'hotel_room' => $hotelRoom->id]) }}" class="px-6 py-4 font-bold text-white bg-indigo-700 rounded-full">
                             Edit
                         </a>
-                        <form action="{{ route('admin.hotel_rooms.destroy', [$hotel->slug, $room]) }}" method="POST"> 
+                        <form action="{{ route('admin.hotel_rooms.destroy', [$hotel->slug, 'hotel_room' => $hotelRoom->id]) }}" method="POST"> 
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="px-6 py-4 font-bold text-white bg-red-700 rounded-full">
@@ -68,7 +68,7 @@
                 <hr class="my-5">
                 <div class="flex flex-row items-center justify-between">
                     <h3 class="text-xl font-bold text-indigo-950">Rooms Available</h3>
-                    <a href=" " class="px-6 py-4 font-bold text-white bg-indigo-700 rounded-full">
+                    <a href="{{ route('admin.hotel_rooms.create', ['hotel' => $hotel->slug]) }}" class="px-6 py-4 font-bold text-white bg-indigo-700 rounded-full">
                         Add New Room
                     </a>
                 </div>
