@@ -12,7 +12,7 @@
           </div>
         </a>
       </div>
-      <form action="hotel-result.html" class="bg-white p-4 flex flex-col gap-6 rounded-xl">
+      <form method="POST" action="{{ route('front.search.hotels') }}" class="bg-white p-4 flex flex-col gap-6 rounded-xl">
         @csrf
         <div class="input-container flex flex-col gap-4">
           <p class="font-semibold">Search Hotel</p>
