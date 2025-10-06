@@ -10,7 +10,7 @@
             <img src="{{asset('assets/images/icons/back.svg')}}" alt="icon">
           </div>
         </a>
-        <p class="font-semibold text-lg leading-[28px] text-white text-center">Singapore</p>
+        <p class="font-semibold text-lg leading-[28px] text-white text-center">{{ ucfirst($keyword) }}</p>
         <div class="dummy-spacer w-[42px] h-[42px] flex shrink-0">
         </div>
       </div>
