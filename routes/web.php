@@ -5,13 +5,20 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HotelRoomController;
 use App\Http\Controllers\HotelBookingController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// FrontEnd
+Route::get('/', [FrontController::class, 'index'])->name('front.index');
+Route::get('/hotels', [FrontController::class, 'hotels'])->name('front.hotels');
+Route::post('/hotels/search/', [FrontController::class, 'search_hotels'])->name('front.search.hotels');
+Route::get('/hotels/list/{keyword}/', [FrontController::class, 'list_hotels'])->name('front.hotels.list');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
