@@ -5,7 +5,7 @@
     </div>
     <div class="relative z-10 px-[18px] flex flex-col gap-6 mt-[60px]">
       <div class="top-menu flex justify-between items-center">
-        <a href="search.html" class="">
+        <a href="{{ route('front.hotels') }}" class="">
           <div class="w-[42px] h-[42px] flex shrink-0">
             <img src="{{asset('assets/images/icons/back.svg')}}" alt="icon">
           </div>
@@ -20,7 +20,7 @@
         <a href="hotel-details.html">
           <div class="card-result bg-white rounded-xl overflow-hidden flex flex-col">
             <div class="thumbnail-container w-full aspect-[357/160] overflow-hidden flex shrink-0">
-              <img src="{{asset('assets/images/thumbnails/thumbnail-result-1.png')}}" class="object-cover w-full h-full" alt="thumbnail">
+              <img src="{{Storage::url($hotel->thumbnail)}}" class="object-cover w-full h-full" alt="thumbnail">
             </div>
             <div class="content-container flex flex-col p-4 gap-6">
               <div class="details-container flex flex-col gap-[6px]">
