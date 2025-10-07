@@ -76,7 +76,14 @@
         </a>
             
         @empty
-        <p>Belum ada hotel saat ini</p>
+        <div id="result" class="result-card-container flex flex-col gap-[18px]">
+          <div class="empty-result h-[321px] bg-white rounded-xl overflow-hidden flex flex-col justify-center items-center gap-3">
+            <div class="flex shrink-0 w-9 h-9">
+              <img src="{{ asset('assets/images/icons/emoticon.png') }}" alt="icon">
+            </div>
+            <p class="font-medium text-[#757C98] text-center">Sadly, it looks like no hotels are<br>available around here.</p>
+          </div>
+        </div>
         @endforelse
       </div>
     </div>
