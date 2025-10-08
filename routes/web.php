@@ -34,12 +34,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // customer
-    Route::middleware('can:checkout hotels')->group(function() {
-        Route::post('/hotels/{$hotel:slug}/{$hotel:room}/book', [FrontController::class, 'hotel_room_book'])->name('front.hotel.room.book');
+    Route::middleware(['auth', 'can:checkout hotels'])->group(function() {
+        Route::post('/hotels/{hotel:slug}/{hotel_room}/book', [FrontController::class, 'hotel_room_book'])->name('front.hotel.room.book');
         
         Route::get('/book/payment/{hotel_booking}/', [FrontController::class, 'hotel_payment'])->name('front.hotel.book.payment');
         
-        Route::put('/book/payment/{$hotel_booking}/store', [FrontController::class, 'hotel_payment_store'])->name('front.hotel.book.payment.store');
+        Route::put('/book/payment/{hotel_booking}/store', [FrontController::class, 'hotel_payment_store'])->name('front.hotel.book.payment.store');
         
         Route::get('/book/finish/', [FrontController::class, 'hotel_book_finish'])->name('front.book_finish');
     });

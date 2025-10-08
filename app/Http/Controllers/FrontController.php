@@ -98,4 +98,9 @@ class FrontController extends Controller
 
         return redirect()->route('front.hotel.book.payment', $hotelBookingId);
     }
+
+    public function hotel_payment(HotelBooking $hotel_booking) {
+        $user = Auth::user();
+        return view ('front.book_payment', compact('hotel_booking', 'user'));
+    }
 }
