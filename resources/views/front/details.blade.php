@@ -24,7 +24,7 @@
         </div>
         <div id="Hotel-info" class="bg-white p-[24px_18px] flex flex-col gap-2">
           <div id="Hotel-rating" class="flex items-center gap-[6px]">
-            <div class="badge rounded-md p-[6px_12px] gap-[2px] bg-[linear-gradient(244.6deg,_#7545FB_14.17%,_#2A3FCC_92.43%)] text-[#F8F8F8] font-semibold text-sm leading-[21px]">5 Star Hotel</div>
+            <div class="badge rounded-md p-[6px_12px] gap-[2px] bg-[linear-gradient(244.6deg,_#7545FB_14.17%,_#2A3FCC_92.43%)] text-[#F8F8F8] font-semibold text-sm leading-[21px]">{{ $hotel->star_level }} Star Hotel</div>
             <div class="flex items-center gap-1 ratings-container">
               <div class="flex items-center star-container">
                 <div class="flex shrink-0 w-[18px] h-[18px] p-[2px]">
@@ -47,12 +47,12 @@
               <p class="reviewers font-medium text-sm leading-[21px] text-[#757C98]">(3214 Review)</p>
             </div>
           </div>
-          <h1 id="Hotel-name" class="font-semibold text-2xl leading-[36px]">Citrine Crest Hotel</h1>
+          <h1 id="Hotel-name" class="font-semibold text-2xl leading-[36px]">{{$hotel->name}}</h1>
           <div id="Hotel-Location" class="flex items-center gap-1">
             <div class="flex w-6 h-6 shrink-0">
               <img src="{{asset('assets/images/icons/location-grey.svg')}}" alt="icon">
             </div>
-            <p class="text-[#757C98] font-medium text-sm leading-[21px]">Pecinan, Singapore</p>
+            <p class="text-[#757C98] font-medium text-sm leading-[21px]">{{ $hotel->city->name }}, {{ $hotel->country->name }}</p>
           </div>
         </div>
       </header>
@@ -254,18 +254,18 @@
           <a id="map-link" href="" target="_blank" class="font-semibold text-sm leading-[21px] text-[#4041DA]">See Map</a>
         </div>
         <div id="embed-map-display" class="w-full aspect-[357/180] overflow-hidden">
-            <iframe id="map-iframe" class="z-0 w-full h-full" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=plaza+indonesia&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
+            <iframe id="map-iframe" class="z-0 w-full h-full" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q={{$hotel->name}}&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
         </div>
-        <p class="font-medium text-xs leading-[18px] text-[#757C98]">Road Harmoni Permai No. 10, Seminyak, Bali, Ascent Brezee Regency 82189, Indonesia</p>
+        <p class="font-medium text-xs leading-[18px] text-[#757C98]">{{$hotel->address}}</p>
       </div>
     </div>
     <div id="Price-bar" class="fixed bottom-[24px] px-[18px] max-w-[640px] w-full z-30">
       <div class="bg-white p-4 pl-6 rounded-full flex items-center justify-between shadow-[0_8px_30px_0_#0A093212]">
         <div class="price-info flex flex-col gap-[2px]">
-          <p class="font-semibold text-lg leading-[27px] text-[#54A917]">Rp1.200.000</p>
+          <p class="font-semibold text-lg leading-[27px] text-[#54A917]">Rp {{ number_format($hotel->getLowestRoomPrice(), 0, ',', '.') }} </p>
           <p class="font-semibold text-xs leading-[18px] text-[#757C98]">/night</p>
         </div>
-        <a href="hotel-rooms-type.html" class="w-[138px] h-[48px] bg-[#4041DA] p-[12px_24px] rounded-full text-nowrap text-white font-semibold text-sm leading-[21px] flex items-center justify-center">Select Room</a>
+        <a href="{{route('front.hotels.rooms', $hotel->slug)}}" class="w-[138px] h-[48px] bg-[#4041DA] p-[12px_24px] rounded-full text-nowrap text-white font-semibold text-sm leading-[21px] flex items-center justify-center">Select Room</a>
       </div>
     </div>
   </section>
