@@ -14,7 +14,7 @@
         <div class="dummy-spacer w-[42px] h-[42px] flex shrink-0">
         </div>
       </div>
-      <form action="{{ route('front.hotel.book.payment.store', $hotel_booking) }}" id="Details" class="flex flex-col gap-6 group result-card-container">
+      <form method="POST" action="{{ route('front.hotel.book.payment.store', $hotel_booking) }}" id="Details" class="flex flex-col gap-6 group result-card-container">
         @csrf
         @method('PUT')
         <div id="Contact-details" class="bg-white rounded-xl overflow-hidden flex flex-col mx-[18px]">
