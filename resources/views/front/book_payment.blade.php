@@ -14,7 +14,7 @@
         <div class="dummy-spacer w-[42px] h-[42px] flex shrink-0">
         </div>
       </div>
-      <form method="POST" action="{{ route('front.hotel.book.payment.store', $hotel_booking) }}" id="Details" class="flex flex-col gap-6 group result-card-container">
+      <form method="POST" enctype="multipart/form-data" action="{{ route('front.hotel.book.payment.store', $hotel_booking) }}" id="Details" class="flex flex-col gap-6 group result-card-container">
         @csrf
         @method('PUT')
         <div id="Contact-details" class="bg-white rounded-xl overflow-hidden flex flex-col mx-[18px]">
@@ -115,7 +115,7 @@
           <p class="font-medium text-sm leading-[21px] text-[#757C98]">Share your payment proof to continue 😉 </p>
         </div>
         <div id="Bottom-nav" class="fixed bottom-0 max-w-[640px] w-full z-30 flex flex-col p-[24px_18px] border-t border-[#DCDFE6] gap-4 bg-white">
-          <button type="submit" id="submitButton" class="flex items-center justify-center font-semibold p-[12px_24px] rounded-lg w-full h-12 bg-[#4041DA] text-white disabled:bg-[#E7E7E7]" disabled>Continue</button>
+          <button type="submit" id="submitButton" class="flex items-center justify-center font-semibold p-[12px_24px] rounded-lg w-full h-12 bg-[#4041DA] text-white disabled:bg-[#E7E7E7]" >Continue</button>
         </div>
       </form>
     </div>
