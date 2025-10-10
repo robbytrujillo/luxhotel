@@ -29,11 +29,15 @@
                             Rp {{ number_format($hotelBooking->room->price, 0, ',', '.') }}/night
                         </h3>
                     </div>   --}}
-                    <form action=" " method="POST"> 
-                        <button type="submit" class="px-6 py-4 font-bold text-white bg-indigo-700 rounded-full">
-                            Approve
-                        </button>
-                    </form> 
+                    @if (!$hotelBooking->is_paid)
+                        <form action="{{ route('admin.hotel_bookings.update', $hotelBooking) }}" method="POST">
+                            @csrf
+                            @method('PATCH') 
+                            <button type="submit" class="px-6 py-4 font-bold text-white bg-indigo-700 rounded-full">
+                                Approve
+                            </button>
+                        </form>
+                    @endif 
                 </div>
 
                 <div class="flex flex-row items-center justify-between item-card">

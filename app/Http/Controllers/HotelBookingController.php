@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\HotelBooking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HotelBookingController extends Controller
 {
@@ -57,6 +58,13 @@ class HotelBookingController extends Controller
     public function update(Request $request, HotelBooking $hotelBooking)
     {
         //
+        DB::transaction(function() use ($hotelBooking) {
+            $hotelBooking->update([
+                'is_paid' => true
+            ]);
+        });
+
+        return redirect()->route('admin.hotel_bookings.show', $hotelBooking);
     }
 
     /**
