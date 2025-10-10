@@ -40,7 +40,7 @@ class HotelBookingController extends Controller
     public function show(HotelBooking $hotelBooking)
     {
         //
-        return view()
+        return view('admin.hotel_bookings.show', compact('hotelBooking'));
     }
 
     /**
