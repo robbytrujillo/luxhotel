@@ -19,9 +19,9 @@
                 <div class="flex flex-col gap-[2px]">
 
                   @if ($booking->is_paid)
-                  <p class="font-semibold">Booking Success</p>
+                    <p class="font-semibold">Booking Success</p>
                   @else
-                  <p class="font-semibold">Waiting for Confirmation</p>
+                    <p class="font-semibold">Waiting for Confirmation</p>
                   @endif
                   
                   <p class="font-medium text-xs leading-[18px] text-[#757C98]">Order ID : {{ $booking->id }}</p>
