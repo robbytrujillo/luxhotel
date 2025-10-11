@@ -44,6 +44,11 @@ Route::middleware('auth')->group(function () {
         Route::get('/book/finish/', [FrontController::class, 'hotel_book_finish'])->name('front.book_finish');
     });
 
+    Route::middleware(['auth', 'can:checkout hotels'])->group(function() {
+        Route::get('/dashboard/my-bookings', [FrontController::class, 'my_bookings'])->name('dashboard.my-bookings');
+        
+    });
+
     Route::prefix('admin')->name('admin.')->group(function() {
         Route::middleware('can:manage cities')->group(function () {
             Route::resource('cities', CityController::class);
