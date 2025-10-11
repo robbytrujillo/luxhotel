@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HotelRoomController;
@@ -44,8 +45,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/book/finish/', [FrontController::class, 'hotel_book_finish'])->name('front.book_finish');
     });
 
-    Route::middleware(['auth', 'can:checkout hotels'])->group(function() {
-        Route::get('/dashboard/my-bookings', [FrontController::class, 'my_bookings'])->name('dashboard.my-bookings');
+    Route::middleware(['auth', 'can:view hotel bookings'])->group(function() {
+        Route::get('/dashboard/my-bookings', [DashboardController::class, 'my_bookings'])->name('dashboard.my-bookings');
         
     });
 
